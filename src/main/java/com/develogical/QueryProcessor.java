@@ -14,6 +14,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("ed")) {
             return "Has curly hair.";
         }
+        if (query.toLowerCase().contains("what is your team name")) {
+            return "The Egg Deluxe";
+        }
         return "";
     }
 }
