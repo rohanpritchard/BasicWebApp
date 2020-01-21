@@ -64,4 +64,9 @@ public class QueryProcessorTest {
     public void knowsHowToFindMaxError() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 22, k"), containsString("Unparsable String: For input string: \"k\""));
     }
+
+    @Test
+    public void knowsPrimes() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers are primes: 2, 11, 6, 5"), containsString("2, 11, 5"));
+    }
 }
