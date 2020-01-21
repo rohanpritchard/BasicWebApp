@@ -22,8 +22,12 @@ public class QueryProcessor {
             String y = x.substring(x.lastIndexOf(":") + 1);
             String[] z = y.split(",");
             int m = Integer.MIN_VALUE;
-            for (String i : z) {
-                m = Integer.max(Integer.parseInt(i.trim()), m);
+            try {
+                for (String i : z) {
+                    m = Integer.max(Integer.parseInt(i.trim()), m);
+                }
+            } catch (NumberFormatException e){
+                return "Unparsable String: " + e.getMessage();
             }
             return Integer.toString(m);
         }

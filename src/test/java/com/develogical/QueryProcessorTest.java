@@ -37,4 +37,8 @@ public class QueryProcessorTest {
     public void knowsHowToFindMax() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 22, 23"), containsString("23"));
     }
+    @Test
+    public void knowsHowToFindMaxError() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 22, k"), containsString("Unparsable String: For input string: \"k\""));
+    }
 }
