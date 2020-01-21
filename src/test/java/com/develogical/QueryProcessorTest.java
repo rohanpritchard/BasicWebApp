@@ -33,4 +33,8 @@ public class QueryProcessorTest {
     public void knowsAboutTeamName() throws Exception {
         assertThat(queryProcessor.process("what is your team name"), containsString("The Egg Deluxe"));
     }
+    @Test
+    public void knowsHowToFindMax() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is the largest:22,23"), containsString("23"));
+    }
 }

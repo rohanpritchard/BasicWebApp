@@ -17,6 +17,16 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your team name")) {
             return "The Egg Deluxe";
         }
+        if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            String x = query.toLowerCase();
+            String y = x.substring(x.lastIndexOf(":") + 1);
+            String[] z = y.split(",");
+            int m = Integer.MIN_VALUE;
+            for (String i : z) {
+                m = Integer.max(Integer.parseInt(i), m);
+            }
+            return Integer.toString(m);
+        }
         return "";
     }
 }
