@@ -28,7 +28,7 @@ public class QueryProcessor {
             String[] z = y.split(",");
             int m = Integer.MIN_VALUE;
             for (String i : z) {
-                m = Integer.max(Integer.parseInt(i), m);
+                m = Integer.max(Integer.parseInt(i.trim()), m);
             }
             return Integer.toString(m);
         }

@@ -40,6 +40,6 @@ public class QueryProcessorTest {
     }
     @Test
     public void knowsHowToFindMax() throws Exception {
-        assertThat(queryProcessor.process("which of the following numbers is the largest:22,23"), containsString("23"));
+        assertThat(queryProcessor.process("which of the following numbers is the largest: 22, 23"), containsString("23"));
     }
 }
