@@ -63,4 +63,9 @@ public class QueryProcessorTest {
     public void knowsPrimes() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers are primes: 2, 11, 6, 5"), containsString("2, 11, 5"));
     }
+
+    @Test
+    public void knowsFibs() throws Exception {
+        assertThat(queryProcessor.process("what is the 16th number in the Fibonacci sequence"), containsString("987"));
+    }
 }
