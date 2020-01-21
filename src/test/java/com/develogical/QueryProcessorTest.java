@@ -81,7 +81,7 @@ public class QueryProcessorTest {
 
     @Test
     public void knowsFibs() throws Exception {
-        assertThat(queryProcessor.process(" what is the 16th number in the Fibonacci sequence"), containsString("987"));
+        assertThat(queryProcessor.process(" what is the 16th number in the Fibonacci sequence"), containsString("610"));
     }
 
     @Test

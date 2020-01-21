@@ -129,7 +129,7 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("fibonacci")) {
             List<Integer> ls = findNumbers(query.toLowerCase());
             int i = ls.get(0);
-            return Integer.toString(fib(i));
+            return Integer.toString(fib(i - 1));
         }
 
         System.out.println("Warning: Unknown query: \"" + query + "\"");
