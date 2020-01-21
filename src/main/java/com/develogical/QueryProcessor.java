@@ -2,6 +2,8 @@ package com.develogical;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
@@ -16,11 +18,10 @@ public class QueryProcessor {
 
     public static List<Integer> findNumbers(String query) {
         List<Integer> result = new ArrayList<>();
-        String[] l = query.split(" ");
-        for (String s:l) {
-            if(isNumeric(s)) {
-                result.add(Integer.parseInt(s));
-            }
+        Pattern p = Pattern.compile("-?\\d+");
+        Matcher m = p.matcher(query);
+        while (m.find()) {
+            result.add(Integer.parseInt(m.group()));
         }
         return result;
     }
@@ -58,9 +59,15 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what colour is a banana")) {
             return "Yellow";
         }
+        if (query.toLowerCase().contains("which of the following numbers is both a square and a cube:")) {
+            return "";
+        }
         if (query.toLowerCase().contains("plus")) {
             List<Integer> numbers = findNumbers(query);
-            int result = numbers.get(0) + numbers.get(1);
+            int result = 0;
+            for (int n:numbers) {
+                result += n;
+            }
             return Integer.toString(result);
         }
         if (query.toLowerCase().contains("minus")) {
