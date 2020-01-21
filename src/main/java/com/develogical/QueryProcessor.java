@@ -17,6 +17,11 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your team name")) {
             return "The Egg Deluxe";
         }
+        if (query.toLowerCase().contains("plus")) {
+            String[] temp = query.split(" ");
+            int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
+            return Integer.toString(result);
+        }
         return "";
     }
 }
