@@ -1,6 +1,25 @@
 package com.develogical;
 
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class QueryProcessor {
+
+    static boolean isPrime(int n)
+    {
+        // Corner case
+        if (n <= 1)
+            return false;
+
+        // Check from 2 to n-1
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
+    }
 
     public String process(String query) {
 
@@ -26,6 +45,19 @@ public class QueryProcessor {
                 m = Integer.max(Integer.parseInt(i.trim()), m);
             }
             return Integer.toString(m);
+        }
+        if (query.toLowerCase().contains("which of the following numbers are primes")) {
+            String x = query.toLowerCase();
+            String y = x.substring(x.lastIndexOf(":") + 1);
+            String[] z = y.split(",");
+            List<String> s = new ArrayList<String>();
+            for (String i : z) {
+                int a = Integer.parseInt(i.trim());
+                if (isPrime(a)) {
+                    s.add(Integer.toString(a));
+                }
+            }
+            return String.join(", ", s);
         }
 
         System.out.println("Warning: Unknown query: \"" + query + "\"");

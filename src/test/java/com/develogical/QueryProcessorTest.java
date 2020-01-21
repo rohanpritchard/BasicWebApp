@@ -37,4 +37,9 @@ public class QueryProcessorTest {
     public void knowsHowToFindMax() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 22, 23"), containsString("23"));
     }
+
+    @Test
+    public void knowsPrimes() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers are primes: 2, 11, 6, 5"), containsString("2, 11, 5"));
+    }
 }
