@@ -52,6 +52,9 @@ public class QueryProcessor {
             return "Paris";
         }
 
+        if (query.toLowerCase().contains("who played James Bond in the film Dr No")) {
+            return "Sean Connery";
+        }
         if (query.toLowerCase().contains("what colour is a banana")) {
             return "Yellow";
         }
