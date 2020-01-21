@@ -17,6 +17,11 @@ public class QueryProcessor {
             int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
             return Integer.toString(result);
         }
+        if (query.toLowerCase().contains("multiplied")) {
+            String[] temp = query.split(" ");
+            int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
+            return Integer.toString(result);
+        }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String x = query.toLowerCase();
             String y = x.substring(x.lastIndexOf(":") + 1);
