@@ -49,33 +49,14 @@ public class QueryProcessor {
             return "The Egg Deluxe";
         }
         if (query.toLowerCase().contains("plus")) {
-<<<<<<< HEAD
             List<Integer> numbers = findNumbers(query);
             int result = numbers.get(0) + numbers.get(1);
             return Integer.toString(result);
         }
         if (query.toLowerCase().contains("multiplied")) {
             List<Integer> numbers = findNumbers(query);
-            int result = numbers.get(0)* numbers.get(1);
+            int result = numbers.get(0) * numbers.get(1);
             return Integer.toString(result);
-=======
-            String[] temp = query.split(" ");
-            try {
-                int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
-                return Integer.toString(result);
-            } catch (NumberFormatException e){
-                return "Unparsable String: " + e.getMessage();
-            }
-        }
-        if (query.toLowerCase().contains("multiplied")) {
-            String[] temp = query.split(" ");
-            try {
-                int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
-                return Integer.toString(result);
-            } catch (NumberFormatException e){
-                return "Unparsable String: " + e.getMessage();
-            }
->>>>>>> b297418b17377c73c2c89f20bf73c267451104d3
         }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String x = query.toLowerCase();
