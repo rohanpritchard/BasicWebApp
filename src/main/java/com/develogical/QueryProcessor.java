@@ -82,6 +82,11 @@ public class QueryProcessor {
             int result = numbers.get(0) - numbers.get(1);
             return Integer.toString(result);
         }
+        if (query.toLowerCase().contains("power")) {
+            List<Integer> numbers = findNumbers(query);
+            int result = (int) Math.pow(numbers.get(0), numbers.get(1));
+            return Integer.toString(result);
+        }
         if (query.toLowerCase().contains("multiplied")) {
             List<Integer> numbers = findNumbers(query);
             int result = numbers.get(0) * numbers.get(1);
