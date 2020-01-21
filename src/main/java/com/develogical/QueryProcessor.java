@@ -127,11 +127,8 @@ public class QueryProcessor {
             return String.join(", ", s);
         }
         if (query.toLowerCase().contains("fibonacci")) {
-            System.out.println("QUERY: " + query);
-            String x = query.toLowerCase();
-            System.out.println(x);
-            String[] y = x.split(" ");
-            int i = Integer.parseInt(y[3].substring(0, y[3].length() - 2));
+            List<Integer> ls = findNumbers(query.toLowerCase());
+            int i = ls.get(0);
             return Integer.toString(fib(i));
         }
 
