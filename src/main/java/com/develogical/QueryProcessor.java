@@ -14,13 +14,21 @@ public class QueryProcessor {
         }
         if (query.toLowerCase().contains("plus")) {
             String[] temp = query.split(" ");
-            int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
-            return Integer.toString(result);
+            try {
+                int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
+                return Integer.toString(result);
+            } catch (NumberFormatException e){
+                return "Unparsable String: " + e.getMessage();
+            }
         }
         if (query.toLowerCase().contains("multiplied")) {
             String[] temp = query.split(" ");
-            int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
-            return Integer.toString(result);
+            try {
+                int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
+                return Integer.toString(result);
+            } catch (NumberFormatException e){
+                return "Unparsable String: " + e.getMessage();
+            }
         }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String x = query.toLowerCase();

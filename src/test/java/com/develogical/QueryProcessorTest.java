@@ -31,8 +31,18 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void knowsAboutMultiplyError() throws Exception {
+        assertThat(queryProcessor.process("what is k multiplied by 2"), containsString("Unparsable String: For input string: \"k\""));
+    }
+
+    @Test
     public void knowsAboutPlus() throws Exception {
         assertThat(queryProcessor.process("what is 1 plus 2"), containsString("3"));
+    }
+
+    @Test
+    public void knowsAboutPlusError() throws Exception {
+        assertThat(queryProcessor.process("what is 1 plus k"), containsString("Unparsable String: For input string: \"k\""));
     }
 
     @Test
