@@ -12,6 +12,10 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your team name")) {
             return "The Egg Deluxe";
         }
+        if (query.toLowerCase().contains("which city is the eiffel tower in")) {
+            return "Paris";
+        }
+
         if (query.toLowerCase().contains("plus")) {
             String[] temp = query.split(" ");
             try {
