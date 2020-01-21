@@ -26,19 +26,20 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void knowsAboutGeorge() throws Exception {
-        assertThat(queryProcessor.process("george"), containsString("Rhymes with anchor."));
+    public void knowsAboutMultiply() throws Exception {
+        assertThat(queryProcessor.process("what is 1 multiplied by 2"), containsString("2"));
     }
-
 
     @Test
     public void knowsAboutPlus() throws Exception {
         assertThat(queryProcessor.process("what is 1 plus 2"), containsString("3"));
     }
+
     @Test
     public void knowsAboutTeamName() throws Exception {
         assertThat(queryProcessor.process("what is your team name"), containsString("The Egg Deluxe"));
     }
+
     @Test
     public void knowsHowToFindMax() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 22, 23"), containsString("23"));
