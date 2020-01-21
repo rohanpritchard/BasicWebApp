@@ -80,6 +80,13 @@ public class QueryProcessor {
             int result = numbers.get(0) * numbers.get(1);
             return Integer.toString(result);
         }
+
+        if (query.toLowerCase().contains("to the power of")) {
+            List<Integer> numbers = findNumbers(query);
+            int result = (int) Math.round(Math.pow(numbers.get(0), numbers.get(1)));
+            return Integer.toString(result);
+        }
+
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String x = query.toLowerCase();
             String y = x.substring(x.lastIndexOf(":") + 1);
