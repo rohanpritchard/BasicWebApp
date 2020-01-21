@@ -1,7 +1,29 @@
 package com.develogical;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QueryProcessor {
 
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
+    public static List<Integer> findNumbers(String query) {
+        List<Integer> result = new ArrayList<>();
+        String[] l = query.split(" ");
+        for (String s:l) {
+            if(isNumeric(s)) {
+                result.add(Integer.parseInt(s));
+            }
+        }
+        return result;
+    }
     public String process(String query) {
 
         if (query.toLowerCase().contains("shakespeare")) {
@@ -13,13 +35,13 @@ public class QueryProcessor {
             return "The Egg Deluxe";
         }
         if (query.toLowerCase().contains("plus")) {
-            String[] temp = query.split(" ");
-            int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0) + numbers.get(1);
             return Integer.toString(result);
         }
         if (query.toLowerCase().contains("multiplied")) {
-            String[] temp = query.split(" ");
-            int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0)* numbers.get(1);
             return Integer.toString(result);
         }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
@@ -41,3 +63,4 @@ public class QueryProcessor {
         return "";
     }
 }
+
