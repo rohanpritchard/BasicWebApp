@@ -26,6 +26,12 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void KnowsAboutEfielTower() throws Exception {
+        assertThat(queryProcessor.process("which city is the Eiffel tower in"), containsString("Paris"));
+    }
+
+
+    @Test
     public void knowsAboutMultiply() throws Exception {
         assertThat(queryProcessor.process("what is 1 multiplied by 2"), containsString("2"));
     }
