@@ -57,6 +57,15 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void knowsAboutBanana() throws Exception {
+        assertThat(queryProcessor.process("what colour is a banana"), containsString("Yellow"));
+    }
+
+    @Test
+    public void knowsAboutMinus() throws Exception {
+        assertThat(queryProcessor.process("what is 1 minus 2"), containsString("-1"));
+    }
+    @Test
     public void knowsHowToFindMax() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 22, 23"), containsString("23"));
     }

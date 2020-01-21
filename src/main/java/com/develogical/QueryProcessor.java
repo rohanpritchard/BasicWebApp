@@ -52,9 +52,17 @@ public class QueryProcessor {
             return "Paris";
         }
 
+        if (query.toLowerCase().contains("what colour is a banana")) {
+            return "Yellow";
+        }
         if (query.toLowerCase().contains("plus")) {
             List<Integer> numbers = findNumbers(query);
             int result = numbers.get(0) + numbers.get(1);
+            return Integer.toString(result);
+        }
+        if (query.toLowerCase().contains("minus")) {
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0) - numbers.get(1);
             return Integer.toString(result);
         }
         if (query.toLowerCase().contains("multiplied")) {
