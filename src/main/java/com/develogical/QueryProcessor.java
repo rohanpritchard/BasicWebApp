@@ -9,12 +9,6 @@ public class QueryProcessor {
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
-        if (query.toLowerCase().contains("george")) {
-            return "Rhymes with anchor.";
-        }
-        if (query.toLowerCase().contains("ed")) {
-            return "Has curly hair.";
-        }
         if (query.toLowerCase().contains("what is your team name")) {
             return "The Egg Deluxe";
         }
