@@ -11,6 +11,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("george")) {
             return "Rhymes with anchor.";
         }
+        if (query.toLowerCase().contains("ed")) {
+            return "Has curly hair.";
+        }
         return "";
     }
 }
