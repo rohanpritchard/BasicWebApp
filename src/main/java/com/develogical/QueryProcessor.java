@@ -5,6 +5,25 @@ import java.util.List;
 
 public class QueryProcessor {
 
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
+    public static List<Integer> findNumbers(String query) {
+        List<Integer> result = new ArrayList<>();
+        String[] l = query.split(" ");
+        for (String s:l) {
+            if(isNumeric(s)) {
+                result.add(Integer.parseInt(s));
+            }
+        }
+        return result;
+    }
     static boolean isPrime(int n)
     {
         // Corner case
@@ -36,23 +55,30 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your team name")) {
             return "The Egg Deluxe";
         }
+        if (query.toLowerCase().contains("which city is the eiffel tower in")) {
+            return "Paris";
+        }
+
+        if (query.toLowerCase().contains("who played James Bond in the film Dr No")) {
+            return "Sean Connery";
+        }
+        if (query.toLowerCase().contains("what colour is a banana")) {
+            return "Yellow";
+        }
         if (query.toLowerCase().contains("plus")) {
-            String[] temp = query.split(" ");
-            try {
-                int result = Integer.parseInt(temp[2]) + Integer.parseInt(temp[4]);
-                return Integer.toString(result);
-            } catch (NumberFormatException e){
-                return "Unparsable String: " + e.getMessage();
-            }
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0) + numbers.get(1);
+            return Integer.toString(result);
+        }
+        if (query.toLowerCase().contains("minus")) {
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0) - numbers.get(1);
+            return Integer.toString(result);
         }
         if (query.toLowerCase().contains("multiplied")) {
-            String[] temp = query.split(" ");
-            try {
-                int result = Integer.parseInt(temp[2]) * Integer.parseInt(temp[5]);
-                return Integer.toString(result);
-            } catch (NumberFormatException e){
-                return "Unparsable String: " + e.getMessage();
-            }
+            List<Integer> numbers = findNumbers(query);
+            int result = numbers.get(0) * numbers.get(1);
+            return Integer.toString(result);
         }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String x = query.toLowerCase();
@@ -92,3 +118,4 @@ public class QueryProcessor {
         return "";
     }
 }
+
