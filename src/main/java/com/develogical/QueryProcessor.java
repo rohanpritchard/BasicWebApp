@@ -39,6 +39,13 @@ public class QueryProcessor {
         return true;
     }
 
+    int fib(int n)
+    {
+        if (n <= 1)
+            return n;
+        return fib(n-1) + fib(n-2);
+    }
+
     public String process(String query) {
 
         if (query.toLowerCase().contains("shakespeare")) {
@@ -106,6 +113,12 @@ public class QueryProcessor {
                 }
             }
             return String.join(", ", s);
+        }
+        if (query.toLowerCase().contains("fibonacci")) {
+            String x = query.toLowerCase();
+            String[] y = x.split(" ");
+            int i = Integer.parseInt(y[3].substring(0, y[3].length() - 2));
+            return Integer.toString(fib(i));
         }
 
         System.out.println("Warning: Unknown query: \"" + query + "\"");
